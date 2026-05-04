@@ -42,7 +42,7 @@ baffle_thickness = !use_shield_mounting ? 1.6 : 1.6 + nic_get_shield_thickness()
 // Baffle height (can decrease for lower profile ethernet jacks/pcb thickness)
 baffle_height = (nic_kind() == "winyao") ? 16.2 :
                   (nic_kind() == "youyeetoo") ? 17.6 :
-                    (nic_kind() == "cnd-tek") ? 14.0 :
+                    (nic_kind() == "cnd-tek") ? 14.8 :
                       18.0;
 
 // Extra depth (behind the end of the wings)

@@ -8,30 +8,31 @@ include <smidge.scad>;
 
 // CND-TEK T-shaped NIC daughter board
 //
-// PCB: 30mm wide x 20mm deep, T-shaped
-//   - Front (wide) section: 30mm x 9mm
-//   - Rear (narrow) section: 21mm x 11mm
-//   - Cutouts: 4.5mm wide x 11mm deep on each side at rear
+// PCB: 30.6mm wide x 20.1mm deep, T-shaped
+//   - Front (wide) section: 30.6mm x 8.8mm
+//   - Rear (narrow) section: 21.6mm x 11.3mm
+//   - Cutouts: 4.5mm wide x 11.3mm deep on each side at rear
 //
-// Ethernet jack: ~16x16x11mm, centered, protrudes ~2mm past front edge
+// Ethernet jack: 16.2x15x11.2mm, centered, protrudes ~2mm past front edge
 // Mounting holes: ~4.5mm from front, ~3mm from sides, ~3mm diameter
-// PCB thickness: ~1.0mm
+// PCB thickness: 1.6mm
+// Flat cable plug pins ~1mm from rear edge
 // No shield used
 //
 
 function nic_kind() = "cnd-tek";
 
 // PCB bounding box (full extent)
-function nic_get_pcb_size() = [ 30, 20, 1.0 ];
+function nic_get_pcb_size() = [ 30.6, 20.1, 1.6 ];
 
 // T-shape cutout dimensions
 _cutout_width = 4.5;
-_cutout_depth = 11;
-_front_section_depth = nic_get_pcb_size().y - _cutout_depth; // 9mm
-_narrow_width = nic_get_pcb_size().x - 2*_cutout_width; // 21mm
+_cutout_depth = nic_get_pcb_size().y - 8.8; // 11.3mm
+_front_section_depth = 8.8;
+_narrow_width = nic_get_pcb_size().x - 2*_cutout_width; // 21.6mm
 
 // ethernet size [left<->right, front<->rear, top<->bottom]
-function nic_get_ethernet_size() = [16, 16, 11];
+function nic_get_ethernet_size() = [16.2, 15, 11.2];
 
 // shield: not used but needed for interface compatibility
 function nic_get_shield_thickness() = 0;
