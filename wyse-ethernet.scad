@@ -78,7 +78,7 @@ config = [
 trough_indent_sizes = (nic_kind() == "iocrest") ? [ [1.5, 7.5, 1.5, 1.5] ] :
                        (nic_kind() == "commell") ? [ [1.6, 7.2, 4.4, 4.4] ] :
                         (nic_kind() == "youyeetoo") ? [ [1.4, 7.5, 5.4, 5.4], [ 29, 7.5, 3, 3 ] ] :
-                         (nic_kind() == "cnd-tek") ? [ [1.5, 0.0, 3.0, 3.0] ] :
+                         (nic_kind() == "cnd-tek") ? [ [1.5, 12.0, 7.0, 7.0], [9.5, 0.0, 3.0, 3.0] ] :
                           (nic_kind() == "winyao")  ? (use_shield_mounting ? [ [ 0.0, 11.0, 3.9, 3.9], [ 0.0, 7.0, 9.0, 9.0] ] :
                                                                             [ [ 1.6, 11.0, 4.2, 4.2], [ 1.6, 7.0, 9.0, 9.0] ] )
                                                   : undef; // customized per NIC PCB/mounting
