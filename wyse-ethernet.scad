@@ -33,7 +33,8 @@ mount_hole_radius = nic_get_bottom_hole_diameter()/2 + 0.2;
 mount_radius = mount_hole_radius*1.75;
 
 // Support thickness
-support_thickness = (nic_kind() == "iocrest") ? 0.8 : 1.6;
+support_thickness = (nic_kind() == "iocrest") ? 0.8 :
+                      (nic_kind() == "cnd-tek") ? 1.6 : 1.6;
 
 // Baffle thickness (extra for shield indent)
 baffle_thickness = !use_shield_mounting ? 1.6 : 1.6 + nic_get_shield_thickness();
@@ -41,7 +42,8 @@ baffle_thickness = !use_shield_mounting ? 1.6 : 1.6 + nic_get_shield_thickness()
 // Baffle height (can decrease for lower profile ethernet jacks/pcb thickness)
 baffle_height = (nic_kind() == "winyao") ? 16.2 :
                   (nic_kind() == "youyeetoo") ? 17.6 :
-                    18.0;
+                    (nic_kind() == "cnd-tek") ? 14.0 :
+                      18.0;
 
 // Extra depth (behind the end of the wings)
 extra_depth = max( 0, (nic_get_pcb_size().y+6.8)-(Wyse_Get_Raw_Depth()-baffle_thickness) );
@@ -50,7 +52,7 @@ extra_depth = max( 0, (nic_get_pcb_size().y+6.8)-(Wyse_Get_Raw_Depth()-baffle_th
 front_cut = [ 0.8, Wyse_Get_Floor_Thickness([]) + nic_get_pcb_size().z*0.8 ];
 
 // Rear snap width (positive for center, negative for dual sides, zero for none)
-rear_snap_width = (nic_kind() == "winyao") ? 20 : (nic_kind() == "youyeetoo") ? -5 : 16;
+rear_snap_width = (nic_kind() == "winyao") ? 20 : (nic_kind() == "youyeetoo") ? -5 : (nic_kind() == "cnd-tek") ? 16 : 16;
 
 function is_center_rear_snap() = rear_snap_width > 0;
 function is_side_rear_snap() = rear_snap_width < 0;
@@ -76,7 +78,8 @@ config = [
 trough_indent_sizes = (nic_kind() == "iocrest") ? [ [1.5, 7.5, 1.5, 1.5] ] :
                        (nic_kind() == "commell") ? [ [1.6, 7.2, 4.4, 4.4] ] :
                         (nic_kind() == "youyeetoo") ? [ [1.4, 7.5, 5.4, 5.4], [ 29, 7.5, 3, 3 ] ] :
-                         (nic_kind() == "winyao")  ? (use_shield_mounting ? [ [ 0.0, 11.0, 3.9, 3.9], [ 0.0, 7.0, 9.0, 9.0] ] :
+                         (nic_kind() == "cnd-tek") ? [ [1.5, 5.0, 3.0, 3.0] ] :
+                          (nic_kind() == "winyao")  ? (use_shield_mounting ? [ [ 0.0, 11.0, 3.9, 3.9], [ 0.0, 7.0, 9.0, 9.0] ] :
                                                                             [ [ 1.6, 11.0, 4.2, 4.2], [ 1.6, 7.0, 9.0, 9.0] ] )
                                                   : undef; // customized per NIC PCB/mounting
 

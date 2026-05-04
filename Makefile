@@ -27,6 +27,7 @@ BUILDS = \
 	wyse-winyao-adapter.scad \
 	wyse-iocrest-adapter.scad \
 	wyse-youyeetoo-adapter.scad \
+	wyse-cnd-tek-adapter.scad \
 	wyse-filler.scad
 
 EXTRAS = \
